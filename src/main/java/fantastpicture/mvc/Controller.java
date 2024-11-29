@@ -15,7 +15,6 @@ import fantastpicture.mvc.service.Model;
 
 public class Controller {
     private Model model;
-    private boolean is_authenticated;
 
     @FXML
     private ListView<String> list_view;
@@ -103,7 +102,7 @@ public class Controller {
             throw new IllegalArgumentException("Le champ " + input_name + " ne doit pas être vide");
         }
         if (!input.getText().matches("[0-9]*[.]?[0-9]?")) {
-            throw new IllegalArgumentException("Le champ '" + input_name + "' ne doit contenir que des nombres positifs");
+            throw new IllegalArgumentException("Le saisie du champ '" + input_name + "' doit être un nombre entier ou n'avoir qu'un chiffre après la virgule");
         }
         if (!(Float.parseFloat(input.getText()) >= 0 && Float.parseFloat(input.getText()) <= 20)) {
             throw new IllegalArgumentException("La note doit être comprise entre 0 et 20");
